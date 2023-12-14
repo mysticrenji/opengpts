@@ -46,6 +46,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ./frontend
+          file: ./frontend/Dockerfile
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
           build-args: |
@@ -60,6 +61,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ./backend
+          file: ./backend/Dockerfile
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
           build-args: |
